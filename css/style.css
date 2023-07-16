@@ -1,0 +1,179 @@
+.banner {
+  position: relative;
+  animation: fade-in 4s;
+}
+.banner #background-video {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  top: 0px;
+  bottom: 0px;
+}
+.banner .parallax-title {
+  z-index: 2;
+  animation: float 3s infinite ease-in-out;
+  position: absolute;
+  transition: top 0.3 ease;
+}
+
+/* effet de flottement du titre*/
+@keyframes float {
+  50% {
+    transform: translateY(10px);
+  }
+}
+/* rotation des fleurs */
+.story__article::after {
+  animation: rotate 5s linear infinite;
+}
+
+.story h2::after {
+  animation: rotate 5s linear infinite;
+}
+
+.site-footer::after {
+  animation: rotate 5s linear infinite;
+}
+
+.site-footer ul::after {
+  animation: rotate 5s linear infinite;
+}
+
+.site-footer::before {
+  animation: rotate 5s linear infinite;
+}
+
+#studio h2::before {
+  animation: rotate 5s linear infinite;
+}
+
+#studio h2::after {
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* apparation des sections en fade-in */
+.story {
+  animation: fade-in 4s ease-in forwards;
+  opacity: 0;
+}
+
+#characters {
+  animation: fadein-b 4s ease-in forwards;
+  opacity: 0;
+}
+
+#place {
+  animation: fadein-r 4s ease-in forwards;
+  opacity: 0;
+}
+
+#studio {
+  animation: fadein-t 4s ease-in forwards;
+  opacity: 0;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadein-r {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes fadein-t {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes fadein-b {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.title-anime2 {
+  opacity: 0;
+}
+
+.title-anime2 .title-span1 {
+  transform: translateY(20px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.title-anime2 .title-span2 {
+  transform: translateY(40px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.title-anime2.animCloud .title-span1 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.title-anime2.animCloud .title-span2 {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* background section oscars */
+.oscars {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.txt-oscars {
+  background-image: url("../images_koukaki/orange_place_bg.png");
+  background-size: contain;
+  background-position: center;
+  padding: 1em 2em;
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+  height: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+/*# sourceMappingURL=style.css.map */

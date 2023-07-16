@@ -1,0 +1,15 @@
+/* background section oscars */
+.oscars {
+   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.txt-oscars {
+    background-image: url('../images_koukaki/orange_place_bg.png');
+    background-size: contain;
+    background-position: center;
+    padding: 1em 2em;
+    
+}

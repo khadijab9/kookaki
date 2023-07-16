@@ -1,0 +1,42 @@
+    .title-span1,
+    .title-span2,
+    .title-span3 {
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1s ease, transform  5s ease;
+      }
+    
+    .title-span2.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 1s;
+      }
+    
+    .title-span3.visible {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 3s;
+      }
+    
+    .title-span1.visible {
+        opacity: 1;
+        transform: translateY(0px);
+        transition-delay: 1s;
+      }
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+      
+    
+    
+    
+    
+    
+    
