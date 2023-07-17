@@ -10,19 +10,24 @@
         opacity: 1;
         transform: translateY(0);
         transition-delay: 1s;
+        animation: fadeY 3s;
       }
     
     .title-span3.visible {
         opacity: 1;
         transform: translateY(0);
         transition-delay: 3s;
+        animation: fadeY 5s;
       }
     
     .title-span1.visible {
         opacity: 1;
         transform: translateY(0px);
         transition-delay: 1s;
+        animation: fadeY 3s;
       }
+
+      
     
     
     

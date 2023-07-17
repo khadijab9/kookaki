@@ -23,19 +23,6 @@ span.forEach(span => {
   observer.observe(span);
 });
 
-
-
-
-  
-
-
-
-
-
-
-
-  
-
 //---------------------------------------------------------
 
 //parallaxe tile
@@ -68,7 +55,21 @@ span.forEach(span => {
      cloud.style.transform = 'translateX(' + parallaxTranslation + 'px)';
    });
  });
+
+//---------------------------------------------------
+//Menu burger
+ const burgerIcon = document.querySelector('.nav-toggle');
+ const menuNav = document.querySelector('.burgerNav')
  
+
+
+ burgerIcon.addEventListener("click", toggler);
+ 
+
+ function toggler(){
+  burgerIcon.classList.toggle("active");
+  menuNav.classList.toggle("active");
+ };
 
  
   

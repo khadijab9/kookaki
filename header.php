@@ -17,18 +17,22 @@
 
 <header id="masthead" class="site-header">
 		<nav id="site-navigation" class="main-navigation">
-            <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </button>
+            <div class="title-toggle">
+                <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                <button  aria-controls="primary-menu"class="nav-toggle" aria-expanded="false">
+                    <span class="line l1"></span>
+                    <span class="line l2"></span>
+                    <span class="line l3"></span>
+                </button>
+            </div>
+            <div class="burgerNav">
             <ul>
+                <img  src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
                 <li><a href="#story">Histoire</a></li>
                 <li><a href="#characters">Personnages</a></li>
-                <li class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></li>
                 <li><a href="#place">Lieu</a></li>
                 <li><a href="#studio">Studio Koukaki</a></li>
             </ul>
-
+            </div>
 		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

@@ -5,15 +5,19 @@ function theme_enqueue_styles() {
     wp_enqueue_style('main-style', get_stylesheet_directory_uri() . '/css/main.css', array(), filemtime(get_stylesheet_directory() . '/css/main.css'));
     
 }
-
+function enqueue_swiper_js() {
+    wp_enqueue_script( 'swiper-js', get_stylesheet_directory_uri() . '/node_modules/swiper/swiper.js', array( 'jquery' ), '1.0', true );
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_swiper_js' );
 
 //swiper js
  function enqueue_swiper_scripts() {
      // Enqueue Swiper.js JS from CDN
-     wp_enqueue_script( 'swiper', 'https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css', array(), '6.8.4', true );
+    
     // Enqueue Swiper JS
+
     wp_enqueue_script( 'swiper-animation', get_stylesheet_directory_uri() . '/js/swiper.js', array( 'jquery' ), '1.0', true ); }
-add_action( 'wp_enqueue_scripts', 'enqueue_swiper_scripts' );
+    add_action( 'wp_enqueue_scripts', 'enqueue_swiper_scripts' );
 
 // charge le fichier js
 function enqueue_animations_js() {

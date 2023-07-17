@@ -24,7 +24,7 @@
 }
 
 .txt-oscars {
-  background-image: url("../images_koukaki/orange_place_bg.png");
+  background-image: url("../images_koukaki/orange_characters_bg.png");
   background-size: contain;
   background-position: center;
   padding: 1em 2em;
@@ -42,18 +42,94 @@
   opacity: 1;
   transform: translateY(0);
   transition-delay: 1s;
+  animation: fadeY 3s;
 }
 
 .title-span3.visible {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 3s;
+  animation: fadeY 5s;
 }
 
 .title-span1.visible {
   opacity: 1;
   transform: translateY(0px);
   transition-delay: 1s;
+  animation: fadeY 3s;
+}
+
+.site-title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.title-toggle .nav-toggle {
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.title-toggle .nav-toggle:active .l1 {
+  transform: translateY(0) rotate(135deg);
+}
+.title-toggle .nav-toggle:active .l2 {
+  opacity: 0;
+}
+.title-toggle .nav-toggle:active .l3 {
+  transform: translateY(0) rotate(-135deg);
+}
+.title-toggle .nav-toggle .line {
+  padding-bottom: 0px;
+  position: absolute;
+  display: block;
+  width: 35px;
+  height: 1.5px;
+  background: black;
+  transition: transform 0.3s ease-out opacity 0.1s ease-out;
+}
+.title-toggle .nav-toggle .line .l1 {
+  transform: translateY(-10px);
+}
+.title-toggle .nav-toggle .line .l2 {
+  opacity: 0;
+}
+.title-toggle .nav-toggle .line .l3 {
+  transform: translateY(10px);
+}
+
+.burgerNav {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.burgerNav ul {
+  margin-top: 20px;
+  display: block;
+  flex-direction: column;
+  background: white;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  transition: 0.3s;
+}
+.burgerNav ul img {
+  height: 130px;
+  padding-bottom: 30px;
+}
+.burgerNav ul a {
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+.burgerNav ul a:hover {
+  text-shadow: 1px 1px 1px rgb(255, 92, 0);
+  color: black;
 }
 
 .banner {

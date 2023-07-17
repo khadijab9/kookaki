@@ -1,0 +1,107 @@
+.site-title {
+    display: flex;
+    justify-content:center ;
+    align-items: center;
+}
+
+
+.title-toggle{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   position: relative;
+   
+    .nav-toggle{
+        margin: 0;
+        padding:0 ;
+        cursor: pointer;
+            &:active {
+                .l1 {
+                    transform: translateY(0) rotate(135deg);
+                }
+                .l2{
+                    opacity: 0;
+                }
+                .l3 {
+                    transform: translateY(0) rotate(-135deg);
+                }
+            }
+            .line {
+                padding-bottom:0px ;
+                position: absolute;
+                display: block;
+                width : 35px;
+                height: 1.5px;
+                background: black;
+                transition : transform 0.3s ease-out opacity 0.1s ease-out;
+    
+                    .l1{
+                        transform : translateY(-10px);
+                    }
+                    .l2{
+                        opacity: 0;
+                    }
+                    .l3 {
+                        transform: translateY(10px);
+                    }
+
+                }
+    }
+}
+  
+
+.burgerNav{
+    display: flex;;
+    justify-content: center;
+    text-align: center;
+    
+    
+  ul {
+    margin-top: 20px;
+    display: block;
+    flex-direction: column;
+    background: white;
+    justify-content: center;
+    width: 100%;
+    position: fixed;
+    transition: 0.3s;
+
+   
+     &:active{
+        
+     }
+    
+    
+    img{
+        height: 130px;
+        padding-bottom: 30px;
+      
+      
+        
+        
+    }
+    a{
+        font-size: 30px;
+        padding-bottom:30px ;
+        &:hover{
+            text-shadow: 1px 1px 1px   rgba(255, 92, 0);
+            color: black;
+     }
+        }
+    }
+}
+
+        
+        
+     
+   
+
+  
+  
+    
+    
+  
+        
+        
+    
+
