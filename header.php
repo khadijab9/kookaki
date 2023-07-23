@@ -4,8 +4,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-
+  
 	<?php wp_head(); ?>
 </head>
 
@@ -17,22 +16,27 @@
 
 <header id="masthead" class="site-header">
 		<nav id="site-navigation" class="main-navigation">
-            <div class="title-toggle">
+            <div class="containerNav">
                 <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-                <button  aria-controls="primary-menu"class="nav-toggle" aria-expanded="false">
+                <div class="burgerMenu">
                     <span class="line l1"></span>
                     <span class="line l2"></span>
                     <span class="line l3"></span>
-                </button>
+                </div>
             </div>
-            <div class="burgerNav">
-            <ul>
-                <img  src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
-                <li><a href="#story">Histoire</a></li>
-                <li><a href="#characters">Personnages</a></li>
-                <li><a href="#place">Lieu</a></li>
-                <li><a href="#studio">Studio Koukaki</a></li>
-            </ul>
+        </nav><!-- #site-navigation -->
+            <div class="menu-full">
+                <ul>
+                    <img  src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
+                    <li><a href="#story">Histoire</a></li>
+                    <li><a href="#characters">Personnages</a></li>
+                    <li><a href="#place">Lieu</a></li>
+                    <li><a href="#studio">Studio Koukaki</a></li>
+                    <li class="studio"> STUDIO KOUKAKI </li>
+                </ul>
+                <img class ="orchidMenu" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Orchid.png'; ?>" alt="logo menu fullscreen">
+                <img class ="cat" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/cat-1.png'; ?>" alt="logo menu fullscreen">
+                <img class ="flower" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Flower.png'; ?>" alt="logo menu fullscreen">
+                <img class ="catBlue" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/cat.png'; ?>" alt="logo menu fullscreen">
             </div>
-		</nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

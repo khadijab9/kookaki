@@ -1,5 +1,4 @@
-
-var swiper = new swiper(".mySwiper", {
+var swiper = new Swiper(".mySwiper", {
   effect: "coverflow",
   grabCursor: true,
   centeredSlides: true,
@@ -10,9 +9,14 @@ var swiper = new swiper(".mySwiper", {
     depth: 100,
     modifier: 1,
     slideShadows: true,
+    loop : true,
+    
   },
   pagination: {
     el: ".swiper-pagination",
   },
+ 
+  
+
 });
 

@@ -6,15 +6,17 @@
 .banner {
     position: relative;
     background-size: cover;
-    animation: fade-in 4s;
+    
+    
     
 
     #background-video{
-        position: absolute;
+        position: relative;
         z-index: 1;
         width: 100%;
         top: 0px;
         bottom: 0px;
+        animation: fade-in 4s;
     }
     .parallax-title {
         z-index: 2;
@@ -140,6 +142,28 @@
         opacity: 1;
     }
 }
+
+
+
+.cloudScroll {
+    transition: transform  5s ease;
+   transform: translateX(650px);
+    position: relative; /* La position relative est nécessaire pour utiliser les propriétés top et left */
+    transition: left 0.9s ease; /* Ajoutez une transition pour une animation fluide */
+  left :20px;
+  top:-30px;
+
+  
+  
+  /* La classe "visible" appliquée lorsque l'élément est visible dans la vue */
+  &.visible {
+    
+   
+    left: 300px; /* Déplacement de 300px vers la droite lorsque l'élément est visible */
+  }
+}
+
+
 
 
 

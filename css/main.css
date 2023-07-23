@@ -1,17 +1,16 @@
+@charset "UTF-8";
 .swiper {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
 }
-
-.swiper-slide {
+.swiper .swiper-slide {
   background-position: center;
   background-size: cover;
   width: 300px;
   height: 300px;
 }
-
-.swiper-slide img {
+.swiper .swiper-slide img {
   display: block;
   width: 100%;
 }
@@ -21,128 +20,143 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
 }
-
-.txt-oscars {
+.oscars .txt-oscars {
   background-image: url("../images_koukaki/orange_characters_bg.png");
-  background-size: contain;
-  background-position: center;
-  padding: 1em 2em;
+  background-size: 110%;
 }
-
 .title-span1,
 .title-span2,
 .title-span3 {
+  display: inline-block;
   opacity: 0;
   transform: translateY(100px);
   transition: opacity 1s ease, transform 5s ease;
 }
 
 .title-span2.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 1s;
-  animation: fadeY 3s;
+  transition-delay: 2s;
+  animation: fadeY 3s forwards;
 }
 
 .title-span3.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition-delay: 3s;
-  animation: fadeY 5s;
+  transition-delay: 4s;
+  animation: fadeY 6s forwards;
 }
 
 .title-span1.visible {
-  opacity: 1;
-  transform: translateY(0px);
-  transition-delay: 1s;
-  animation: fadeY 3s;
+  transition-delay: 2s;
+  animation: fadeY 3s forwards;
 }
 
-.site-title {
+@keyframes fadeY {
+  from {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.containerNav {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.title-toggle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: relative;
+  height: 80px;
 }
-.title-toggle .nav-toggle {
+.containerNav .burgerMenu {
+  width: 30px;
   margin: 0;
   padding: 0;
+  z-index: 10;
   cursor: pointer;
 }
-.title-toggle .nav-toggle:active .l1 {
-  transform: translateY(0) rotate(135deg);
+.containerNav .burgerMenu .line {
+  width: 100%;
+  height: 1px;
+  margin-bottom: 5px;
+  transition: all 0.15s linear;
 }
-.title-toggle .nav-toggle:active .l2 {
+.containerNav .burgerMenu.active span.l2 {
   opacity: 0;
 }
-.title-toggle .nav-toggle:active .l3 {
-  transform: translateY(0) rotate(-135deg);
+.containerNav .burgerMenu.active span.l1 {
+  transform: rotate(45deg) translate(5px, 3px);
 }
-.title-toggle .nav-toggle .line {
-  padding-bottom: 0px;
-  position: absolute;
-  display: block;
-  width: 35px;
-  height: 1.5px;
-  background: black;
-  transition: transform 0.3s ease-out opacity 0.1s ease-out;
-}
-.title-toggle .nav-toggle .line .l1 {
-  transform: translateY(-10px);
-}
-.title-toggle .nav-toggle .line .l2 {
-  opacity: 0;
-}
-.title-toggle .nav-toggle .line .l3 {
-  transform: translateY(10px);
+.containerNav .burgerMenu.active span.l3 {
+  transform: rotate(-45deg) translate(5px, -3px);
 }
 
-.burgerNav {
-  display: flex;
-  justify-content: center;
+.menu-full {
+  display: none;
+  background: green;
   text-align: center;
+  padding-top: 25px;
+  z-index: 1;
 }
-.burgerNav ul {
-  margin-top: 20px;
+.menu-full.active {
   display: block;
-  flex-direction: column;
-  background: white;
-  justify-content: center;
-  width: 100%;
-  position: fixed;
-  transition: 0.3s;
 }
-.burgerNav ul img {
-  height: 130px;
+.menu-full ul {
+  margin: 0;
+  padding: 0;
+}
+.menu-full ul li {
+  font-size: 50px;
+  list-style-type: none;
   padding-bottom: 30px;
 }
-.burgerNav ul a {
-  font-size: 30px;
-  padding-bottom: 30px;
+.menu-full ul li a {
+  text-decoration: none;
 }
-.burgerNav ul a:hover {
+.menu-full ul li a:hover {
   text-shadow: 1px 1px 1px rgb(255, 92, 0);
   color: black;
+}
+.menu-full ul .studio {
+  margin-top: 100px;
+  font-size: 15px;
+  color: black;
+}
+.menu-full ul img {
+  height: 140px;
+  margin-bottom: 80px;
+}
+.menu-full .orchidMenu {
+  position: absolute;
+  left: 0;
+  top: 150PX;
+}
+.menu-full .cat {
+  position: absolute;
+  left: 80px;
+  bottom: 90px;
+}
+.menu-full .flower {
+  position: absolute;
+  left: 250px;
+  bottom: 290px;
+}
+.menu-full .catBlue {
+  position: absolute;
+  left: 340px;
+  top: 260px;
 }
 
 .banner {
   position: relative;
   background-size: cover;
-  animation: fade-in 4s;
 }
 .banner #background-video {
-  position: absolute;
+  position: relative;
   z-index: 1;
   width: 100%;
   top: 0px;
   bottom: 0px;
+  animation: fade-in 4s;
 }
 .banner .parallax-title {
   z-index: 2;
@@ -254,6 +268,18 @@
     transform: translateY(0);
     opacity: 1;
   }
+}
+.cloudScroll {
+  transition: transform 5s ease;
+  transform: translateX(650px);
+  position: relative; /* La position relative est nécessaire pour utiliser les propriétés top et left */
+  transition: left 0.9s ease; /* Ajoutez une transition pour une animation fluide */
+  left: 20px;
+  top: -30px;
+  /* La classe "visible" appliquée lorsque l'élément est visible dans la vue */
+}
+.cloudScroll.visible {
+  left: 300px; /* Déplacement de 300px vers la droite lorsque l'élément est visible */
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -4,7 +4,7 @@ get_header();
 ?>
 
     <main id="primary" class="site-main">
-        <section class="banner">
+        <section class="banner" poster="fallback">
         <video id="background-video" autoplay loop muted>
         <source src=" <?php echo get_template_directory_uri() . '-child/images_koukaki/video_Koukaki.mp4'; ?>" type="video/mp4">
         </video>
@@ -47,15 +47,15 @@ get_header();
         <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Kawaneko.png' ?>" alt="nuage">
       </div>
     </div>
-    <div class="swiper-pagination"></div>
+    
   </div>
 
   
             </article>
             <article id="place">
                 <div>
-                    <img class="cloud-parallax" src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/big_cloud.png' ?>" alt="nuage">
-                    <img class="cloud-parallax" src=" <?php echo get_template_directory_uri() . '-child/images_koukaki/little_cloud.png' ?>" alt="petit nuage">
+                    <img class="cloudScroll" src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/big_cloud.png' ?>" alt="nuage">
+                    <img class="cloudScroll" src=" <?php echo get_template_directory_uri() . '-child/images_koukaki/little_cloud.png' ?>" alt="petit nuage">
                     <h3> Le Lieu  </h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>
