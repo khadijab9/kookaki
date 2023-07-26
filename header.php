@@ -24,7 +24,7 @@
                     <span class="line l3"></span>
                 </div>
             </div>
-        </nav><!-- #site-navigation -->
+        
             <div class="menu-full">
                 <ul>
                     <img  src="<?php echo get_template_directory_uri() . '/assets/images/logo.png'; ?> " alt="logo Fleurs d'oranger & chats errants">
@@ -34,9 +34,14 @@
                     <li><a href="#studio">Studio Koukaki</a></li>
                     <li class="studio"> STUDIO KOUKAKI </li>
                 </ul>
-                <img class ="orchidMenu" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Orchid.png'; ?>" alt="logo menu fullscreen">
+                <img class ="orchidMenu" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/orchid.png'; ?>" alt="logo menu fullscreen">
                 <img class ="cat" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/cat-1.png'; ?>" alt="logo menu fullscreen">
                 <img class ="flower" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Flower.png'; ?>" alt="logo menu fullscreen">
                 <img class ="catBlue" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/cat.png'; ?>" alt="logo menu fullscreen">
+                <img class ="sunFlower" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Sunflower.png'; ?>" alt="logo menu fullscreen">
+                <img class ="litleFlower" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/random_flower.png'; ?>" alt="logo menu fullscreen">
+                <img class ="cat3" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Group 180.png'; ?>" alt="logo menu fullscreen">
+                <img class ="hibisusMenu" src="<?php echo get_template_directory_uri() . '-child/icone-koukaki/Hibiscus.png'; ?>" alt="logo menu fullscreen">
             </div>
+        </nav><!-- #site-navigation -->
 	</header><!-- #masthead -->

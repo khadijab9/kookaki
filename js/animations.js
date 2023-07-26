@@ -1,6 +1,6 @@
   const span = document.querySelectorAll('.title-span1 , .title-span2, .title-span3');
 // Create the observer :
-const observer = new IntersectionObserver(entries => {
+ const observer = new IntersectionObserver(entries => {
   entries.forEach((entry) => {
     // If the element is visible
     if (entry.isIntersecting) {
@@ -98,10 +98,15 @@ const obs = new IntersectionObserver(entries => {
 });
 })
 
-
 cloud.forEach(cloud => {
   obs.observe(cloud);
 });
+
+
+
+//------------------
+
+
 
  
   

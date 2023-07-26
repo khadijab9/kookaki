@@ -6,26 +6,29 @@
 .banner {
     position: relative;
     background-size: cover;
-    
-    
-    
 
     #background-video{
         position: relative;
         z-index: 1;
         width: 100%;
-        top: 0px;
-        bottom: 0px;
+        top: 0;
+        
         animation: fade-in 4s;
+        background-size: cover;
+        @media screen and (max-width :992px ){
+           
+                display: none;
+            }
+        }
     }
+
     .parallax-title {
         z-index: 2;
         animation: float 3s infinite ease-in-out;
         position: absolute;
         transition: top 0.3 ease;
-
     }
-}
+
 
 /* effet de flottement du titre*/ 
 @keyframes float {
@@ -33,7 +36,6 @@
     50%{
         transform: translateY(10px);
     }
-    
 }
 
 /* rotation des fleurs */
@@ -71,7 +73,18 @@
     to {
       transform: rotate(360deg);
     }
-  }
+}
+  @media screen and  (max-width: 992px){
+    #studio h2::before,
+    .site-footer::after {
+        display: none;
+    }
+
+ }
+      
+  
+
+  
 
  
   
@@ -80,7 +93,6 @@
 /* apparation des sections en fade-in */
 .story {
     animation : fade-in 4s ease-in forwards; 
-
     opacity: 0;
 }
 
@@ -88,6 +100,10 @@
     animation: fadein-b 4s ease-in forwards;
     opacity: 0;
 
+}
+#colophon{
+    animation: fadeB 4s ease-in forwards ;
+    opacity: 0;
 }
 
 #place {
@@ -143,24 +159,65 @@
     }
 }
 
-
-
-.cloudScroll {
-    transition: transform  5s ease;
-   transform: translateX(650px);
-    position: relative; /* La position relative est nécessaire pour utiliser les propriétés top et left */
-    transition: left 0.9s ease; /* Ajoutez une transition pour une animation fluide */
-  left :20px;
-  top:-30px;
-
-  
-  
-  /* La classe "visible" appliquée lorsque l'élément est visible dans la vue */
-  &.visible {
+@keyframes fadeB {
+    from{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
     
+}
+.cloudTop{
+    top :80px;
+    left: 600px;
+}
+.cloudBottom{
+    top:270px;
+    left: 350px;
+    
+}
+
+.cloudScroll{
+    position: absolute;
+    transform: translateX(0);
+    transition: transform 5s ease;
+    filter: blur(13px);
    
-    left: 300px; /* Déplacement de 300px vers la droite lorsque l'élément est visible */
-  }
+    &.visible {
+        animation: scrollLeft 5s linear forwards; /* Vitesse de défilement et boucle infinie */
+      }
+      @keyframes scrollLeft {
+        0% {
+          transform: translateX(0); /* Début de l'animation, pas de décalage */
+        }
+        100% {
+         transform: translateX(300px); /* Fin de l'animation, décalage de -300px vers la gauche */
+        }
+      }
+      
+      }
+
+   
+   
+
+
+   
+
+  
+  
+    
+  
+  
+
+ 
+    
+ 
+.story #place   {
+background-image: url('../images_koukaki/Studio_Koukaki-image_place.png');
+
 }
 
 

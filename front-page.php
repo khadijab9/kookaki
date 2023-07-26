@@ -47,15 +47,17 @@ get_header();
         <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Kawaneko.png' ?>" alt="nuage">
       </div>
     </div>
-    
+  
   </div>
 
   
             </article>
             <article id="place">
                 <div>
-                    <img class="cloudScroll" src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/big_cloud.png' ?>" alt="nuage">
-                    <img class="cloudScroll" src=" <?php echo get_template_directory_uri() . '-child/images_koukaki/little_cloud.png' ?>" alt="petit nuage">
+                    
+                      <img class="cloudTop cloudScroll" src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/big_cloud.png' ?>" alt="nuage"> 
+                      <img class="cloudBottom cloudScroll" src=" <?php echo get_template_directory_uri() . '-child/images_koukaki/little_cloud.png' ?>" alt="petit nuage">
+                                     
                     <h3> Le Lieu  </h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
                 </div>

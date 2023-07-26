@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.main-characters {
+  overflow-x: hidden;
+}
+
 .swiper {
   width: 100%;
   padding-top: 50px;
@@ -7,8 +11,8 @@
 .swiper .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
 }
 .swiper .swiper-slide img {
   display: block;
@@ -66,54 +70,93 @@
   align-items: center;
   position: relative;
   height: 80px;
+  flex-wrap: wrap;
 }
-.containerNav .burgerMenu {
-  width: 30px;
-  margin: 0;
-  padding: 0;
-  z-index: 10;
+.containerNav a {
+  text-align: center;
+  font-size: 25px;
+}
+@media screen and (max-width: 640px) {
+  .containerNav a {
+    display: none;
+  }
+}
+
+.burgerMenu {
+  width: 50px;
+  right: 60px;
+  top: 30px;
+  position: absolute;
   cursor: pointer;
 }
-.containerNav .burgerMenu .line {
+@media screen and (max-width: 640px) {
+  .burgerMenu {
+    position: static;
+  }
+}
+.burgerMenu .line {
   width: 100%;
-  height: 1px;
+  height: 1.5px;
   margin-bottom: 5px;
   transition: all 0.15s linear;
 }
-.containerNav .burgerMenu.active span.l2 {
+
+.burgerMenu.active span.l2 {
   opacity: 0;
 }
-.containerNav .burgerMenu.active span.l1 {
-  transform: rotate(45deg) translate(5px, 3px);
+.burgerMenu.active span.l1 {
+  transform: rotate(45deg) translate(6px, 3px);
 }
-.containerNav .burgerMenu.active span.l3 {
-  transform: rotate(-45deg) translate(5px, -3px);
+.burgerMenu.active span.l3 {
+  transform: rotate(-45deg) translate(6px, -3px);
 }
 
 .menu-full {
   display: none;
-  background: green;
   text-align: center;
   padding-top: 25px;
+  background: #FFF5E9;
   z-index: 1;
+  opacity: 0;
+  transform: translateY(-100px);
+  transition: opacity 1s ease, transform 5s ease;
+  height: 100vh;
 }
 .menu-full.active {
   display: block;
+  animation: fadeMenu 3s forwards;
+}
+@keyframes fadeMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 .menu-full ul {
   margin: 0;
   padding: 0;
+  display: block;
 }
 .menu-full ul li {
   font-size: 50px;
   list-style-type: none;
   padding-bottom: 30px;
 }
+@media screen and (max-width: 992px) {
+  .menu-full ul li {
+    font-size: 30px;
+    padding-bottom: 20px;
+  }
+}
 .menu-full ul li a {
   text-decoration: none;
 }
 .menu-full ul li a:hover {
-  text-shadow: 1px 1px 1px rgb(255, 92, 0);
+  text-shadow: 0 0 5px #FF5C00, 0 0 10px #FF5C00, 0 0 15px #FF5C00;
   color: black;
 }
 .menu-full ul .studio {
@@ -128,22 +171,71 @@
 .menu-full .orchidMenu {
   position: absolute;
   left: 0;
-  top: 150PX;
+  top: 100PX;
+  animation: rotate 10s linear infinite;
 }
 .menu-full .cat {
   position: absolute;
   left: 80px;
-  bottom: 90px;
-}
-.menu-full .flower {
-  position: absolute;
-  left: 250px;
-  bottom: 290px;
+  bottom: 170px;
+  animation: floatCat 5s infinite ease-in-out;
+  transition: top 0.3 ease;
 }
 .menu-full .catBlue {
   position: absolute;
   left: 340px;
-  top: 260px;
+  top: 200px;
+  animation: floatCat 4s infinite ease-in-out;
+  transition: top 0.3 ease;
+}
+.menu-full .cat3 {
+  position: absolute;
+  bottom: 350px;
+  right: 250px;
+  animation: floatCat 4s infinite ease-in-out;
+  transition: top 0.3 ease;
+}
+@keyframes floatCat {
+  50% {
+    transform: translateY(10px);
+  }
+}
+.menu-full .flower {
+  position: absolute;
+  left: 250px;
+  bottom: 400px;
+  animation: rotate 10s linear infinite;
+}
+.menu-full .sunFlower {
+  position: absolute;
+  top: 100px;
+  right: 170px;
+  animation: rotate 10s linear infinite;
+}
+.menu-full .litleFlower {
+  position: absolute;
+  bottom: 450px;
+  right: 0;
+  animation: rotate 10s linear infinite;
+  width: 60px;
+}
+.menu-full .hibisusMenu {
+  bottom: 0;
+  position: absolute;
+  right: 0;
+  animation: rotate 10s linear infinite;
+}
+@media screen and (max-width: 992px) {
+  .menu-full .hibisusMenu,
+  .menu-full .litleFlower,
+  .menu-full .sunFlower,
+  .menu-full .flower,
+  .menu-full .cat,
+  .menu-full .cat3,
+  .menu-full .catBlue,
+  .menu-full .orchidMenu {
+    display: none;
+  }
 }
 
 .banner {
@@ -154,11 +246,17 @@
   position: relative;
   z-index: 1;
   width: 100%;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
   animation: fade-in 4s;
+  background-size: cover;
 }
-.banner .parallax-title {
+@media screen and (max-width: 992px) {
+  .banner #background-video {
+    display: none;
+  }
+}
+
+.parallax-title {
   z-index: 2;
   animation: float 3s infinite ease-in-out;
   position: absolute;
@@ -208,6 +306,12 @@
     transform: rotate(360deg);
   }
 }
+@media screen and (max-width: 992px) {
+  #studio h2::before,
+  .site-footer::after {
+    display: none;
+  }
+}
 /* apparation des sections en fade-in */
 .story {
   animation: fade-in 4s ease-in forwards;
@@ -216,6 +320,11 @@
 
 #characters {
   animation: fadein-b 4s ease-in forwards;
+  opacity: 0;
+}
+
+#colophon {
+  animation: fadeB 4s ease-in forwards;
   opacity: 0;
 }
 
@@ -269,17 +378,46 @@
     opacity: 1;
   }
 }
+@keyframes fadeB {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+.cloudTop {
+  top: 80px;
+  left: 600px;
+}
+
+.cloudBottom {
+  top: 270px;
+  left: 350px;
+}
+
 .cloudScroll {
+  position: absolute;
+  transform: translateX(0);
   transition: transform 5s ease;
-  transform: translateX(650px);
-  position: relative; /* La position relative est nécessaire pour utiliser les propriétés top et left */
-  transition: left 0.9s ease; /* Ajoutez une transition pour une animation fluide */
-  left: 20px;
-  top: -30px;
-  /* La classe "visible" appliquée lorsque l'élément est visible dans la vue */
+  filter: blur(13px);
 }
 .cloudScroll.visible {
-  left: 300px; /* Déplacement de 300px vers la droite lorsque l'élément est visible */
+  animation: scrollLeft 5s linear forwards; /* Vitesse de défilement et boucle infinie */
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0); /* Début de l'animation, pas de décalage */
+  }
+  100% {
+    transform: translateX(300px); /* Fin de l'animation, décalage de -300px vers la gauche */
+  }
+}
+
+.story #place {
+  background-image: url("../images_koukaki/Studio_Koukaki-image_place.png");
 }
 
 /*# sourceMappingURL=main.css.map */

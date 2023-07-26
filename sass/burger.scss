@@ -4,67 +4,97 @@
     align-items: center;
     position: relative;
     height: 80px;
+    flex-wrap: wrap;
+    a{
+        text-align: center;
+        font-size: 25px;
+        @media  screen and (max-width: 640px){
+            display: none;
+        }
+        }
+    }
 
     .burgerMenu {
-        width: 30px;
-        margin: 0;
-        padding: 0;
-        z-index: 10;
+        width: 50px;
+        right: 60px;
+        top: 30px;
+        position : absolute;
         cursor: pointer;
-
-       
-
+        @media screen and (max-width:640px){
+            position: static; ;
+        }
+        
+        
         .line {
             width: 100%;
-            height: 1px;
+            height: 1.5px;
             margin-bottom: 5px;
             transition: all 0.15s linear;
         }
-
     }
+
     .burgerMenu.active{
         span{
             &.l2{
                 opacity: 0;
             }
             &.l1{
-                transform: rotate(45deg) translate(5px, 3px);
+                transform: rotate(45deg) translate(6px, 3px);
             }
             &.l3{
-                transform: rotate(-45deg) translate(5px, -3px);
+                transform: rotate(-45deg) translate(6px, -3px);
             }
             }
         }
-    }
-
 
 .menu-full {
-  display: none;
-    background: green;
+    display: none;
     text-align: center;
     padding-top: 25px;
-
+    background: #FFF5E9;
     z-index: 1;
+    opacity: 0;
+    transform: translateY(-100px);
+    transition: opacity 1s ease, transform  5s ease;
+    
+    height: 100vh;
 
     &.active {
         display: block;
+        animation: fadeMenu 3s forwards;
 
+    }
+    @keyframes fadeMenu {
+        from {
+            opacity: 0;
+          transform: translateY(-100px);
+        }
+          to{
+          opacity: 1;
+            transform: translateY(0);
+          }
+        
     }
 
     ul {
         margin: 0;
         padding: 0;
+        display: block;
 
         li {
             font-size: 50px;
             list-style-type: none;
             padding-bottom: 30px;
-
-            a {
+            @media screen and (max-width: 992px){
+                
+                    font-size: 30px;
+                    padding-bottom: 20px;
+            }
+           a {
                 text-decoration: none;
 
                 &:hover {
-                    text-shadow: 1px 1px 1px rgba(255, 92, 0);
+                    text-shadow: 0 0 5px #FF5C00, 0 0 10px #FF5C00, 0 0 15px 	#FF5C00;
                     color: black;
                 }
             }
@@ -81,29 +111,85 @@
 
             height: 140px;
             margin-bottom: 80px;
+          
         }
 
     }
 
     .orchidMenu {
-        position: absolute;
+    position: absolute;
     left: 0;
-    top: 150PX;
+    top: 100PX;
+    animation: rotate 10s linear infinite;
         
     }
     .cat {
         position: absolute;
         left: 80px;
-        bottom: 90px;
-    }
-    .flower {
-        position : absolute;
-        left : 250px;
-        bottom: 290px;
+        bottom: 170px;
+        animation: floatCat 5s infinite ease-in-out;
+        
+        transition: top 0.3 ease;
     }
     .catBlue{
         position: absolute;
         left: 340px;
-        top : 260px;
+        top : 200px;
+        animation: floatCat 4s infinite ease-in-out;
+        transition: top 0.3 ease;
     }
+    .cat3{
+        position: absolute;
+        bottom : 350px;
+        right : 250px;
+        animation: floatCat 4s infinite ease-in-out;
+        transition: top 0.3 ease;
+    }
+    @keyframes floatCat {
+   
+        50%{
+            transform: translateY(10px);
+        }
+    }
+    .flower {
+        position : absolute;
+        left : 250px;
+        bottom: 400px;
+        animation: rotate 10s linear infinite;
+    }
+  
+    .sunFlower {
+        position: absolute;
+        top :100px;
+        right: 170px;
+        animation: rotate 10s linear infinite;
+    }
+    .litleFlower{
+        position: absolute;
+        bottom: 450px;
+        right: 0;
+        animation: rotate 10s linear infinite;
+        width: 60px;
+    }
+    .hibisusMenu{
+        bottom: 0;
+        position: absolute;
+        right : 0;
+        animation: rotate 10s linear infinite;
+    }
+
+    @media screen and (max-width: 992px){
+    .hibisusMenu,
+    .litleFlower,
+    .sunFlower,
+    .flower,
+    .cat,
+    .cat3,
+    .catBlue,
+    .orchidMenu {
+    display: none;
+    }
+        
+    }
+    
 }

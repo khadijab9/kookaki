@@ -1,25 +1,29 @@
+.main-characters {
+ 
+  overflow-x: hidden;
+}
 
-
-// swiper js
 .swiper {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
   
+    
 
     .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
+    
+    
 
     img {
       display: block;
       width: 100%;
+      
     }
     }
-  
-
    
 }
 
