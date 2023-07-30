@@ -11,8 +11,9 @@
     background-image: url('../images_koukaki/orange_characters_bg.png');
     background-size: 110%;
    
-    @media screen and (max-width: 800px) {
-        
+    @media screen and (max-width: 700px) {
+      font-size: 20px;
+      background-size: 130%;
       
 
       }

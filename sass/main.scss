@@ -6,17 +6,19 @@
 .banner {
     position: relative;
     background-size: cover;
+    height: 0;
+    
 
     #background-video{
         position: relative;
         z-index: 1;
         width: 100%;
+        height: 100%;
         top: 0;
-        
+        object-fit: cover;
         animation: fade-in 4s;
         background-size: cover;
         @media screen and (max-width :992px ){
-           
                 display: none;
             }
         }
@@ -76,7 +78,13 @@
 }
   @media screen and  (max-width: 992px){
     #studio h2::before,
-    .site-footer::after {
+    #studio h2::after,
+    .site-footer::after,
+    .site-footer::before,
+    .story__article::after,
+    .story h2::after,
+    .site-footer::after,
+    .site-footer ul::after {
         display: none;
     }
 
@@ -94,6 +102,7 @@
 .story {
     animation : fade-in 4s ease-in forwards; 
     opacity: 0;
+    overflow-x: hidden;
 }
 
 #characters {
@@ -112,6 +121,7 @@
 }
 
 #studio {
+    overflow: hidden;
     animation: fadein-t 4s ease-in forwards;
     opacity: 0;
 }
@@ -172,33 +182,35 @@
 }
 .cloudTop{
     top :80px;
-    left: 600px;
+    right: 50px;
 }
 .cloudBottom{
     top:270px;
-    left: 350px;
+    right: 350px;
     
 }
-
 .cloudScroll{
     position: absolute;
-    transform: translateX(0);
-    transition: transform 5s ease;
+   // transform: translateX(0);
+  // transition: transform 5s ease;
     filter: blur(13px);
    
-    &.visible {
-        animation: scrollLeft 5s linear forwards; /* Vitesse de défilement et boucle infinie */
+   &.visible {
+        animation: scrollLeft 10s linear forwards; /* Vitesse de défilement et boucle infinie */
       }
-      @keyframes scrollLeft {
-        0% {
-          transform: translateX(0); /* Début de l'animation, pas de décalage */
-        }
-        100% {
-         transform: translateX(300px); /* Fin de l'animation, décalage de -300px vers la gauche */
-        }
-      }
+    @keyframes scrollLeft {
+       0% {
+         transform: translateX(0); /* Début de l'animation, pas de décalage */
+       }
+       50%{
+        transform: translateX(-300px);
+       }
+       100% {
+         transform: translateX(10px); /* Fin de l'animation, décalage de 10px vers la droite */
+       }
+     }
       
-      }
+     }
 
    
    

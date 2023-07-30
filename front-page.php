@@ -29,26 +29,27 @@ get_header();
             <article id="characters">
                 <div class="main-character">
                     <h3> Les personnages </h3>
- <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Orenjiiro-1.png' ?>" alt="nuage">
+                    
+      <div class="other-characters">
+                    <div class="swiper mySwiper ">
+                    <div class="swiper-wrapper">
+                <?php
+          while ($characters_query->have_posts()) {
+            $characters_query->the_post();
+            echo '<div class="swiper-slide">';
+            echo '<figure>';
+            echo get_the_post_thumbnail(get_the_ID(), 'full');
+            echo '<figcaption>';
+            the_title();
+            echo '</figcaption>';
+            echo '</figure>';
+            echo '</div>';
+         } ?>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Pinku-1.png' ?>" alt="nuage">
       </div>
-      <div class="swiper-slide">
-        <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Tenshi-1.png' ?>" alt="nuage">
-      </div>
-      <div class="swiper-slide">
-        <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Jaakuna-1.png' ?>" alt="nuage">
-      </div>
-      <div class="swiper-slide">
-        <img  src= "<?php echo get_template_directory_uri() . '-child/images_koukaki/Kawaneko.png' ?>" alt="nuage">
-      </div>
-    </div>
-  
-  </div>
+
+       
 
   
             </article>

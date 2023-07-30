@@ -29,7 +29,7 @@ span.forEach(span => {
 // Récupère la valeur de défilement vertical de la fenêtre
   let value = window.scrollY;
   // La valeur de la marge supérieure est calculée en multipliant la valeur de défilement par 0.35
-  parallax.style.marginTop = value * 0.35 + 'px';
+  parallax.style.marginTop = value * 0.15 + 'px';
   });
  
   //-------------------------------------------------------------
@@ -42,22 +42,22 @@ span.forEach(span => {
  // });
 
 //séléctionne tous les éléments 
- const clouds = document.querySelectorAll('.cloud-parallax');
-// ajoute un écouteur d'event los du scroll
- window.addEventListener('scroll', () => {
-  // Récupérez la position actuelle de défilement horizontale
-   const scrollPosition = window.scrollX;
-   // Parcoure chaque élément "cloud" 
-   clouds.forEach(cloud => {
-    // Récupérez la position verticale de chaque élément "cloud" par rapport à la fenêtre 
-     const position = cloud.getBoundingClientRect().top;
-      // Récupérez la hauteur de la fenêtre visible 
-     const windowHeight = window.innerHeight;
-      // Calcul la translation de parallaxe en fonction de la position de l'élément par rapport à la fenêtre
-     const parallaxTranslation = (position - windowHeight) * 0.5; // Ajuste la vitesse de parallaxe souhaitée
-     cloud.style.transform = 'translateX(' + parallaxTranslation + 'px)';
-   });
- });
+//  const clouds = document.querySelectorAll('.cloud-parallax');
+// // ajoute un écouteur d'event los du scroll
+//  window.addEventListener('scroll', () => {
+//   // Récupérez la position actuelle de défilement horizontale
+//    const scrollPosition = window.scrollX;
+//    // Parcoure chaque élément "cloud" 
+//    clouds.forEach(cloud => {
+//     // Récupérez la position verticale de chaque élément "cloud" par rapport à la fenêtre 
+//      const position = cloud.getBoundingClientRect().top;
+//       // Récupérez la hauteur de la fenêtre visible 
+//      const windowHeight = window.innerHeight;
+//       // Calcul la translation de parallaxe en fonction de la position de l'élément par rapport à la fenêtre
+//      const parallaxTranslation = (position - windowHeight) * 0.5; // Ajuste la vitesse de parallaxe souhaitée
+//      cloud.style.transform = 'translateX(' + parallaxTranslation + 'px)';
+//    });
+//  });
 
 //---------------------------------------------------
 //Menu burger

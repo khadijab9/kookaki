@@ -1,22 +1,25 @@
 @charset "UTF-8";
-.main-characters {
-  overflow-x: hidden;
-}
-
 .swiper {
   width: 100%;
   padding-top: 50px;
   padding-bottom: 50px;
+  height: 80%;
 }
 .swiper .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 350px;
-  height: 350px;
+  width: 400px;
+  height: 400px;
 }
 .swiper .swiper-slide img {
   display: block;
   width: 100%;
+  height: 350px;
+}
+
+.story #characters .other-characters figure {
+  width: 100%;
+  padding: 0;
 }
 
 /* background section oscars */
@@ -30,6 +33,13 @@
   background-image: url("../images_koukaki/orange_characters_bg.png");
   background-size: 110%;
 }
+@media screen and (max-width: 700px) {
+  .oscars .txt-oscars {
+    font-size: 20px;
+    background-size: 130%;
+  }
+}
+
 .title-span1,
 .title-span2,
 .title-span3 {
@@ -116,11 +126,11 @@
   text-align: center;
   padding-top: 25px;
   background: #FFF5E9;
-  z-index: 1;
   opacity: 0;
   transform: translateY(-100px);
   transition: opacity 1s ease, transform 5s ease;
   height: 100vh;
+  overflow: hidden;
 }
 .menu-full.active {
   display: block;
@@ -170,28 +180,28 @@
 }
 .menu-full .orchidMenu {
   position: absolute;
-  left: 0;
-  top: 100PX;
+  left: -5em;
+  top: 7em;
   animation: rotate 10s linear infinite;
 }
 .menu-full .cat {
   position: absolute;
-  left: 80px;
-  bottom: 170px;
+  left: 5em;
+  bottom: 11em;
   animation: floatCat 5s infinite ease-in-out;
   transition: top 0.3 ease;
 }
 .menu-full .catBlue {
   position: absolute;
-  left: 340px;
-  top: 200px;
+  left: 22em;
+  top: 13em;
   animation: floatCat 4s infinite ease-in-out;
   transition: top 0.3 ease;
 }
 .menu-full .cat3 {
   position: absolute;
-  bottom: 350px;
-  right: 250px;
+  bottom: 22em;
+  right: 17em;
   animation: floatCat 4s infinite ease-in-out;
   transition: top 0.3 ease;
 }
@@ -214,15 +224,15 @@
 }
 .menu-full .litleFlower {
   position: absolute;
-  bottom: 450px;
-  right: 0;
+  bottom: 35em;
+  right: -2em;
   animation: rotate 10s linear infinite;
   width: 60px;
 }
 .menu-full .hibisusMenu {
-  bottom: 0;
+  bottom: -2em;
   position: absolute;
-  right: 0;
+  right: -5em;
   animation: rotate 10s linear infinite;
 }
 @media screen and (max-width: 992px) {
@@ -237,16 +247,29 @@
     display: none;
   }
 }
+@media screen and (min-width: 992px) and (max-width: 1150px) {
+  .menu-full .catBlue {
+    left: 250px;
+    top: 200px;
+  }
+  .menu-full .cat3 {
+    bottom: 350px;
+    right: 150px;
+  }
+}
 
 .banner {
   position: relative;
   background-size: cover;
+  height: 0;
 }
 .banner #background-video {
   position: relative;
   z-index: 1;
   width: 100%;
+  height: 100%;
   top: 0;
+  object-fit: cover;
   animation: fade-in 4s;
   background-size: cover;
 }
@@ -308,7 +331,13 @@
 }
 @media screen and (max-width: 992px) {
   #studio h2::before,
-  .site-footer::after {
+  #studio h2::after,
+  .site-footer::after,
+  .site-footer::before,
+  .story__article::after,
+  .story h2::after,
+  .site-footer::after,
+  .site-footer ul::after {
     display: none;
   }
 }
@@ -316,6 +345,7 @@
 .story {
   animation: fade-in 4s ease-in forwards;
   opacity: 0;
+  overflow-x: hidden;
 }
 
 #characters {
@@ -334,6 +364,7 @@
 }
 
 #studio {
+  overflow: hidden;
   animation: fadein-t 4s ease-in forwards;
   opacity: 0;
 }
@@ -390,29 +421,30 @@
 }
 .cloudTop {
   top: 80px;
-  left: 600px;
+  right: 50px;
 }
 
 .cloudBottom {
   top: 270px;
-  left: 350px;
+  right: 350px;
 }
 
 .cloudScroll {
   position: absolute;
-  transform: translateX(0);
-  transition: transform 5s ease;
   filter: blur(13px);
 }
 .cloudScroll.visible {
-  animation: scrollLeft 5s linear forwards; /* Vitesse de défilement et boucle infinie */
+  animation: scrollLeft 10s linear forwards; /* Vitesse de défilement et boucle infinie */
 }
 @keyframes scrollLeft {
   0% {
     transform: translateX(0); /* Début de l'animation, pas de décalage */
   }
+  50% {
+    transform: translateX(-300px);
+  }
   100% {
-    transform: translateX(300px); /* Fin de l'animation, décalage de -300px vers la gauche */
+    transform: translateX(10px); /* Fin de l'animation, décalage de 10px vers la droite */
   }
 }
 
