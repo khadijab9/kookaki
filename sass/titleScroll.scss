@@ -1,0 +1,43 @@
+    .title-span2,
+    .title-span1{
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: opacity 1s ease, transform  5s ease;
+      &.visible {
+        transition-delay: 2s;
+        animation: fadeY 3s forwards;
+      }}
+    
+    .title-span3{
+        display: inline-block;
+        /*Rend la classe invisible avec une opacité de 0 */
+        opacity: 0;
+        /* Déplacer le titre vers le bas de 100 pixels */
+        transform: translateY(100px);
+        /* Applique une transition de 1s pour l'opacité et de 5s pour le déplacement */
+        transition: opacity 1s ease, transform  5s ease;
+        /* Ajouter la classe "visible" lorsque le titre apparaît */
+    &.visible {
+        transition-delay: 4s;
+        /* Applique une animation"fadeY" qui déplace les éléments de manière fluide vers leur position d'origine en 6s */
+        animation: fadeY 6s forwards;
+      }
+      @keyframes fadeY {
+        from {
+          /* rend le titre transparent et le déplace vers le bas de 100px au début de l'animation*/
+          opacity: 0;
+        transform: translateY(100px);
+      }
+        to{
+           /* Rend le titre opaque et reprend  sa position d'origine*/
+        opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+      @media screen and  (max-width: 470px){
+          .title-anime2{
+            background-size: 140%;
+          }
+      }

@@ -1,26 +1,30 @@
-/* background section oscars */
+/* section oscars */
 .oscars {
-   
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-
-
-.txt-oscars {
+    animation: fade-left 4s ease-in forwards;
+    opacity: 0;
+    @keyframes fade-left {
+      from {
+          transform: translateX(50px);
+          opacity: 0;
+      }
+      to {
+          transform: translateX(0);
+          opacity: 1;
+      }
+  }
+    .txt-oscars {
     background-image: url('../images_koukaki/orange_characters_bg.png');
     background-size: 110%;
    
     @media screen and (max-width: 700px) {
-      font-size: 20px;
+      font-size: 15px;
       background-size: 130%;
-      
-
       }
-
-    }
-    
-        
+    }   
     }
    
    

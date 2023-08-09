@@ -2,9 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     height: 80px;
-    flex-wrap: wrap;
     a{
         text-align: center;
         font-size: 25px;
@@ -12,32 +10,30 @@
             display: none;
         }
         }
-    }
-
-    .burgerMenu {
-        width: 50px;
-        right: 60px;
-        top: 30px;
-        position : absolute;
-        cursor: pointer;
-        @media screen and (max-width:640px){
-            position: static; ;
-        }
-        
-        
-        .line {
-            width: 100%;
-            height: 1.5px;
-            margin-bottom: 5px;
-            transition: all 0.15s linear;
-        }
-    }
-
+     .burgerMenu {
+            width: 50px;
+            right: 60px;
+            top: 30px;
+            position : absolute;
+            cursor: pointer;
+            @media screen and (max-width:640px){
+                position: static; 
+            }
+            .line {
+                width: 100%;
+                height: 1.5px;
+                margin-bottom: 5px;
+                // créer une animation fluide lorsque'on clique sur l'icone burger
+                transition: all 0.3s linear;
+            }
+    }}
+    //Le bouton burger affiche une animation de transition lorsqu'il est activé.
     .burgerMenu.active{
         span{
             &.l2{
                 opacity: 0;
             }
+            // les deux span pivotent et se dépace pour former une croix
             &.l1{
                 transform: rotate(45deg) translate(6px, 3px);
             }
@@ -48,20 +44,17 @@
         }
 
 .menu-full {
-   display: none;
+    display: none; /* menu caché par défaut */
     text-align: center;
     padding-top: 25px;
     background: #FFF5E9;
-    opacity: 0;
-    transform: translateY(-100px);
-    transition: opacity 1s ease, transform  5s ease;
     height: 100vh;
     overflow: hidden;
 
     &.active {
+        /* Le menu devient visible lorsqu'il a la classe .active */
         display: block;
         animation: fadeMenu 3s forwards;
-
     }
     @keyframes fadeMenu {
         from {
@@ -72,99 +65,99 @@
           opacity: 1;
             transform: translateY(0);
           }
-        
     }
-
     ul {
         margin: 0;
         padding: 0;
         display: block;
 
         li {
-            font-size: 50px;
+            font-size: 30px;
             list-style-type: none;
             padding-bottom: 30px;
             @media screen and (max-width: 992px){
-                
-                    font-size: 30px;
-                    padding-bottom: 20px;
+                    font-size: 25px;
+                    padding-bottom: 15px;
             }
            a {
-                text-decoration: none;
-
+            text-decoration: none;
                 &:hover {
                     text-shadow: 0 0 5px #FF5C00, 0 0 10px #FF5C00, 0 0 15px 	#FF5C00;
                     color: black;
                 }
             }
-
         }
-
         .studio {
-            margin-top: 100px;
-            font-size: 15px;
+            margin-top: 30px;
+            font-size: 10px;
             color: black;
         }
-
         img {
-
-            height: 140px;
-            margin-bottom: 80px;
-          
+            height: 120px;
+            margin-bottom: 45px; 
         }
-
     }
-
-    .orchidMenu {
-    position: absolute;
-    left: -5em;
-    top: 7em;
-    animation: rotate 10s linear infinite;
-  
-    }
+    
     .cat {
         position: absolute;
         left: 5em;
-        bottom: 11em;
-        animation: floatCat 5s infinite ease-in-out;
-        transition: top 0.3 ease;
+        bottom: 8em;
+        animation: floatCat 4s infinite ease-in-out;
+     
     }
     .catBlue{
         position: absolute;
-        left: 22em;
-        top : 13em;
+        left: 20em;
+        top : 8em;
         animation: floatCat 4s infinite ease-in-out;
-        transition: top 0.3 ease;
+       
+        @media screen and (min-width: 992px) and (max-width:1150px){
+            top : 10em;
+            }  
     }
     .cat3{
         position: absolute;
-        bottom : 22em;
-        right : 17em;
+        bottom : 12em;
+        right : 20em;
         animation: floatCat 4s infinite ease-in-out;
-        transition: top 0.3 ease;
-    }
-    @keyframes floatCat {
-   
-        50%{
-            transform: translateY(10px);
+        
+        @keyframes floatCat {
+            50%{
+                transform: translateY(10px);
+            }
         }
+        @media screen and (min-width: 992px) and (max-width:1150px){
+            top: 22em;
     }
-    .flower {
-        position : absolute;
-        left : 250px;
-        bottom: 400px;
-        animation: rotate 10s linear infinite;
     }
   
+    .orchidMenu {
+        position: absolute;
+        left: -6em;
+        top: 4em;
+        animation: rotate 10s linear infinite;
+        }
+    .flower {
+        position : absolute;
+        left : 15em;
+        top: 21em;
+        animation: rotate 10s linear infinite;
+        @media screen and (min-width: 992px) and (max-width:1150px){
+            top: 22em;
+        }
+    }
     .sunFlower {
         position: absolute;
-        top :100px;
-        right: 170px;
+        top :4em;
+        right: 17em;
         animation: rotate 10s linear infinite;
+        @media screen and (min-width: 992px) and (max-width:1150px){
+            right: 12em;
+    }
     }
     .litleFlower{
         position: absolute;
-        bottom: 35em;
+        bottom: 20em;
         right: -2em;
         animation: rotate 10s linear infinite;
         width: 60px;
@@ -175,7 +168,6 @@
         right : -5em;
         animation: rotate 10s linear infinite;
     }
-
     @media screen and (max-width: 992px){
     .hibisusMenu,
     .litleFlower,
@@ -185,18 +177,8 @@
     .cat3,
     .catBlue,
     .orchidMenu {
-    display: none;
+        display: none;
     } 
     }
-    @media screen and (min-width: 992px) and (max-width:1150px){
-        .catBlue{
-            left: 250px;
-        top : 200px;
-        }
-        .cat3{
-            bottom : 350px;
-        right : 150px;
-        }
-    }
-    
 }
+    

@@ -1,13 +1,12 @@
 @import 'swiper';
 @import 'oscars';
-@import'title';
+@import'titleScroll';
 @import 'burger';
+@import 'clouds';
 
 .banner {
     position: relative;
-    background-size: cover;
     height: 0;
-    
 
     #background-video{
         position: relative;
@@ -17,55 +16,59 @@
         top: 0;
         object-fit: cover;
         animation: fade-in 4s;
-        background-size: cover;
-        @media screen and (max-width :992px ){
+        @media screen and (max-width :768px ){
                 display: none;
             }
         }
-    }
-
     .parallax-title {
         z-index: 2;
         animation: float 3s infinite ease-in-out;
         position: absolute;
-        transition: top 0.3 ease;
-    }
-
-
 /* effet de flottement du titre*/ 
-@keyframes float {
-   
-    50%{
-        transform: translateY(10px);
+        @keyframes float {
+            50%{
+                transform: translateY(10px);
+            }
+        }
     }
 }
+
 
 /* rotation des fleurs */
-.story__article::after {
-    animation: rotate 5s linear infinite;
+.story__article {
+	&::after {
+		animation: rotate 5s linear infinite;
+	}
 }
-
-.story h2::after {
-    animation: rotate 5s linear infinite;
-
+.story {
+	h2 {
+		&::after {
+			animation: rotate 5s linear infinite;
+		}
+	}
 }
-.site-footer::after{
-    animation: rotate 5s linear infinite;
+.site-footer {
+	&::after {
+		animation: rotate 5s linear infinite;
+	}
+	ul {
+		&::after {
+			animation: rotate 5s linear infinite;
+		}
+	}
+	&::before {
+		animation: rotate 5s linear infinite;
+	}
 }
-
-.site-footer ul::after{
-    animation: rotate 5s linear infinite; 
-}
-.site-footer::before {
-    animation: rotate 5s linear infinite;  
-
-}
-#studio h2::before {
-    animation: rotate 5s linear infinite;
-}
-
-#studio h2::after {
-    animation: rotate 5s linear infinite;
+#studio {
+	h2 {
+		&::before {
+			animation: rotate 5s linear infinite;
+		}
+		&::after {
+			animation: rotate 5s linear infinite;
+		}
+	}
 }
 
 @keyframes rotate {
@@ -82,136 +85,89 @@
     .site-footer::after,
     .site-footer::before,
     .story__article::after,
-    .story h2::after,
-    .site-footer::after,
-    .site-footer ul::after {
+    .story h2::after{
         display: none;
     }
-
  }
       
-  
-
-  
-
- 
-  
-
-
 /* apparation des sections en fade-in */
 .story {
     animation : fade-in 4s ease-in forwards; 
     opacity: 0;
     overflow-x: hidden;
+    @keyframes fade-in {
+        from {
+            transform: translateX(-100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 }
-
 #characters {
     animation: fadein-b 4s ease-in forwards;
     opacity: 0;
+    @keyframes fadein-b {
+        from {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 
 }
 #colophon{
     animation: fadeB 4s ease-in forwards ;
     opacity: 0;
+    @keyframes fadeB {
+        from{
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        to{
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
 }
-
 #place {
     animation: fadein-r 4s ease-in forwards;
     opacity: 0;
+    @keyframes fadein-r {
+        from {
+            transform: translateX(100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }  
 }
-
 #studio {
     overflow: hidden;
     animation: fadein-t 4s ease-in forwards;
     opacity: 0;
-}
-
-@keyframes fade-in {
-    from {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-@keyframes fadein-r {
-    from {
-        transform: translateX(100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-
-}
-@keyframes fadein-t {
-    from {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
+    @keyframes fadein-t {
+        from {
+            transform: translateY(-100px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
 }
 
-@keyframes fadein-b {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
 
-@keyframes fadeB {
-    from{
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to{
-        transform: translateY(0);
-        opacity: 1;
-    }
-    
-}
-.cloudTop{
-    top :80px;
-    right: 50px;
-}
-.cloudBottom{
-    top:270px;
-    right: 350px;
-    
-}
-.cloudScroll{
-    position: absolute;
-   // transform: translateX(0);
-  // transition: transform 5s ease;
-    filter: blur(13px);
-   
-   &.visible {
-        animation: scrollLeft 10s linear forwards; /* Vitesse de défilement et boucle infinie */
-      }
-    @keyframes scrollLeft {
-       0% {
-         transform: translateX(0); /* Début de l'animation, pas de décalage */
-       }
-       50%{
-        transform: translateX(-300px);
-       }
-       100% {
-         transform: translateX(10px); /* Fin de l'animation, décalage de 10px vers la droite */
-       }
-     }
       
-     }
-
+     
    
    
 
@@ -227,10 +183,7 @@
  
     
  
-.story #place   {
-background-image: url('../images_koukaki/Studio_Koukaki-image_place.png');
 
-}
 
 
 

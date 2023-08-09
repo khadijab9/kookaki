@@ -1,88 +1,61 @@
-  const span = document.querySelectorAll('.title-span1 , .title-span2, .title-span3');
-// Create the observer :
+// aparition des titres au scroll
+//sélectionne tous les éléments avec les class title-span :
+const span = document.querySelectorAll('.title-span1 , .title-span2, .title-span3');
+// Crée un observateur avec une fonction de rappel 
+//qui sera exécutée lorsque les éléments cibles entrent et sortent de la zone visible de l'écran.
  const observer = new IntersectionObserver(entries => {
+  // La fonction de rappel reçoit un tableau "entries" 
+  //contenant les informations sur les éléments observés.
   entries.forEach((entry) => {
-    // If the element is visible
+    // Si l'élément est visible 
     if (entry.isIntersecting) {
-      // Add the animation class
+      // on ajoute la classe
       entry.target.classList.add('visible');        
     } else {
     // sinon on retire la class 
     entry.target.classList.remove('visible');
   };
 });
-})
-// commence à oberser l'élément
-observer.observe(document.querySelector('.title-anime1'));
-observer.observe(document.querySelector('.title-anime2'));
-
+});
+// Applique l'observateur à chaque élément "span" dans la variable "span".
 span.forEach(span => {
   observer.observe(span);
 });
 
 //---------------------------------------------------------
-
 //parallaxe tile
+// Sélectionne l'élément avec la classe 
  const parallax = document.querySelector ('.parallax-title');
- //ajoute une écouteur d'event au défilement de la fenêtre
+ //ajoute un écouteur d'event au défilement de la fenêtre
   window.addEventListener('scroll', () => {
-// Récupère la valeur de défilement vertical de la fenêtre
+// Récupère la valeur de défilement vertical de la fenêtre et la stocke dans la variable value
   let value = window.scrollY;
-  // La valeur de la marge supérieure est calculée en multipliant la valeur de défilement par 0.35
-  parallax.style.marginTop = value * 0.15 + 'px';
+  // Appliquer un effet de parallaxe en modifiant le style "marginTop" de l'élément "parallax-title".
+  //La valeur de la marge supérieure est calculée en multipliant la valeur de défilement par 0.35
+  parallax.style.marginTop = value * 0.35 + 'px';
   });
- 
-  //-------------------------------------------------------------
-  //parallax clouds 
-   //const cloud = document.querySelectorAll ('.cloud-parallax');
- // window.addEventListener('scroll', () => {
-
- // let value = window.scrollX;
-  // cloud.style.marginLeft = value * 2.5 + 'px';
- // });
-
-//séléctionne tous les éléments 
-//  const clouds = document.querySelectorAll('.cloud-parallax');
-// // ajoute un écouteur d'event los du scroll
-//  window.addEventListener('scroll', () => {
-//   // Récupérez la position actuelle de défilement horizontale
-//    const scrollPosition = window.scrollX;
-//    // Parcoure chaque élément "cloud" 
-//    clouds.forEach(cloud => {
-//     // Récupérez la position verticale de chaque élément "cloud" par rapport à la fenêtre 
-//      const position = cloud.getBoundingClientRect().top;
-//       // Récupérez la hauteur de la fenêtre visible 
-//      const windowHeight = window.innerHeight;
-//       // Calcul la translation de parallaxe en fonction de la position de l'élément par rapport à la fenêtre
-//      const parallaxTranslation = (position - windowHeight) * 0.5; // Ajuste la vitesse de parallaxe souhaitée
-//      cloud.style.transform = 'translateX(' + parallaxTranslation + 'px)';
-//    });
-//  });
 
 //---------------------------------------------------
 //Menu burger
+//lors du chargement du Dom
 document.addEventListener('DOMContentLoaded', function () {
+  //Sélection des éléments du menu
   const burger = document.querySelector('.burgerMenu');
   const menu = document.querySelector('.menu-full')
-  
- 
- 
+ // Ajoute un écouteur d'événements pour le clic sur le bouton burger
   burger.addEventListener("click", function(){
+     // Ajoute et supprime la classe active à l'élément "burger"
+    // ce qui permet de basculer son état visuel 
+    //pour créer un effet d'ouverture/fermeture du menu).
    burger.classList.toggle("active");
+    // permet de basculer son affichage en rendant le menu visible ou caché.
    menu.classList.toggle("active");
-  
-
   });  
-  
   });
-
-
 
  //----------------------------------------
  // cloud scroll
-
-
-// Commencez à observer chaque élément cloudScroll
+// sectionne tous les éléments avec la classe
 const cloud = document.querySelectorAll('.cloudScroll');
 // Create the observer :
 const obs = new IntersectionObserver(entries => {
@@ -97,14 +70,11 @@ const obs = new IntersectionObserver(entries => {
   };
 });
 })
+// Applique l'observateur à chaque élément "cloud" dans la variable "cloud".
+ cloud.forEach(cloud => {
+ obs.observe(cloud);
+ });
 
-cloud.forEach(cloud => {
-  obs.observe(cloud);
-});
-
-
-
-//------------------
 
 
 

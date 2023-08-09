@@ -22,12 +22,32 @@
   padding: 0;
 }
 
-/* background section oscars */
+.swiper-slide-shadow-right {
+  background-image: nonE;
+}
+
+.swiper-slide-shadow-left {
+  background-image: none;
+}
+
+/* section oscars */
 .oscars {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  animation: fade-left 4s ease-in forwards;
+  opacity: 0;
+}
+@keyframes fade-left {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 .oscars .txt-oscars {
   background-image: url("../images_koukaki/orange_characters_bg.png");
@@ -35,52 +55,62 @@
 }
 @media screen and (max-width: 700px) {
   .oscars .txt-oscars {
-    font-size: 20px;
+    font-size: 15px;
     background-size: 130%;
   }
 }
 
-.title-span1,
 .title-span2,
-.title-span3 {
+.title-span1 {
   display: inline-block;
   opacity: 0;
   transform: translateY(100px);
   transition: opacity 1s ease, transform 5s ease;
 }
-
-.title-span2.visible {
-  transition-delay: 2s;
-  animation: fadeY 3s forwards;
-}
-
-.title-span3.visible {
-  transition-delay: 4s;
-  animation: fadeY 6s forwards;
-}
-
+.title-span2.visible,
 .title-span1.visible {
   transition-delay: 2s;
   animation: fadeY 3s forwards;
 }
 
+.title-span3 {
+  display: inline-block;
+  /*Rend la classe invisible avec une opacité de 0 */
+  opacity: 0;
+  /* Déplacer le titre vers le bas de 100 pixels */
+  transform: translateY(100px);
+  /* Applique une transition de 1s pour l'opacité et de 5s pour le déplacement */
+  transition: opacity 1s ease, transform 5s ease;
+  /* Ajouter la classe "visible" lorsque le titre apparaît */
+}
+.title-span3.visible {
+  transition-delay: 4s;
+  /* Applique une animation"fadeY" qui déplace les éléments de manière fluide vers leur position d'origine en 6s */
+  animation: fadeY 6s forwards;
+}
 @keyframes fadeY {
   from {
+    /* rend le titre transparent et le déplace vers le bas de 100px au début de l'animation*/
     opacity: 0;
     transform: translateY(100px);
   }
   to {
+    /* Rend le titre opaque et reprend  sa position d'origine*/
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 470px) {
+  .title-anime2 {
+    background-size: 140%;
   }
 }
 .containerNav {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   height: 80px;
-  flex-wrap: wrap;
 }
 .containerNav a {
   text-align: center;
@@ -91,8 +121,7 @@
     display: none;
   }
 }
-
-.burgerMenu {
+.containerNav .burgerMenu {
   width: 50px;
   right: 60px;
   top: 30px;
@@ -100,15 +129,15 @@
   cursor: pointer;
 }
 @media screen and (max-width: 640px) {
-  .burgerMenu {
+  .containerNav .burgerMenu {
     position: static;
   }
 }
-.burgerMenu .line {
+.containerNav .burgerMenu .line {
   width: 100%;
   height: 1.5px;
   margin-bottom: 5px;
-  transition: all 0.15s linear;
+  transition: all 0.3s linear;
 }
 
 .burgerMenu.active span.l2 {
@@ -122,17 +151,15 @@
 }
 
 .menu-full {
-  display: none;
+  display: none; /* menu caché par défaut */
   text-align: center;
   padding-top: 25px;
   background: #FFF5E9;
-  opacity: 0;
-  transform: translateY(-100px);
-  transition: opacity 1s ease, transform 5s ease;
   height: 100vh;
   overflow: hidden;
 }
 .menu-full.active {
+  /* Le menu devient visible lorsqu'il a la classe .active */
   display: block;
   animation: fadeMenu 3s forwards;
 }
@@ -152,14 +179,14 @@
   display: block;
 }
 .menu-full ul li {
-  font-size: 50px;
+  font-size: 30px;
   list-style-type: none;
   padding-bottom: 30px;
 }
 @media screen and (max-width: 992px) {
   .menu-full ul li {
-    font-size: 30px;
-    padding-bottom: 20px;
+    font-size: 25px;
+    padding-bottom: 15px;
   }
 }
 .menu-full ul li a {
@@ -170,61 +197,78 @@
   color: black;
 }
 .menu-full ul .studio {
-  margin-top: 100px;
-  font-size: 15px;
+  margin-top: 30px;
+  font-size: 10px;
   color: black;
 }
 .menu-full ul img {
-  height: 140px;
-  margin-bottom: 80px;
-}
-.menu-full .orchidMenu {
-  position: absolute;
-  left: -5em;
-  top: 7em;
-  animation: rotate 10s linear infinite;
+  height: 120px;
+  margin-bottom: 45px;
 }
 .menu-full .cat {
   position: absolute;
   left: 5em;
-  bottom: 11em;
-  animation: floatCat 5s infinite ease-in-out;
-  transition: top 0.3 ease;
+  bottom: 8em;
+  animation: floatCat 4s infinite ease-in-out;
 }
 .menu-full .catBlue {
   position: absolute;
-  left: 22em;
-  top: 13em;
+  left: 20em;
+  top: 8em;
   animation: floatCat 4s infinite ease-in-out;
-  transition: top 0.3 ease;
+}
+@media screen and (min-width: 992px) and (max-width: 1150px) {
+  .menu-full .catBlue {
+    top: 10em;
+  }
 }
 .menu-full .cat3 {
   position: absolute;
-  bottom: 22em;
-  right: 17em;
+  bottom: 12em;
+  right: 20em;
   animation: floatCat 4s infinite ease-in-out;
-  transition: top 0.3 ease;
 }
 @keyframes floatCat {
   50% {
     transform: translateY(10px);
   }
 }
+@media screen and (min-width: 992px) and (max-width: 1150px) {
+  .menu-full .cat3 {
+    top: 22em;
+  }
+}
+.menu-full .orchidMenu {
+  position: absolute;
+  left: -6em;
+  top: 4em;
+  animation: rotate 10s linear infinite;
+}
 .menu-full .flower {
   position: absolute;
-  left: 250px;
-  bottom: 400px;
+  left: 15em;
+  top: 21em;
   animation: rotate 10s linear infinite;
+}
+@media screen and (min-width: 992px) and (max-width: 1150px) {
+  .menu-full .flower {
+    top: 22em;
+  }
 }
 .menu-full .sunFlower {
   position: absolute;
-  top: 100px;
-  right: 170px;
+  top: 4em;
+  right: 17em;
   animation: rotate 10s linear infinite;
+}
+@media screen and (min-width: 992px) and (max-width: 1150px) {
+  .menu-full .sunFlower {
+    right: 12em;
+  }
 }
 .menu-full .litleFlower {
   position: absolute;
-  bottom: 35em;
+  bottom: 20em;
   right: -2em;
   animation: rotate 10s linear infinite;
   width: 60px;
@@ -247,20 +291,36 @@
     display: none;
   }
 }
-@media screen and (min-width: 992px) and (max-width: 1150px) {
-  .menu-full .catBlue {
-    left: 250px;
-    top: 200px;
+
+.story #place {
+  background-image: url("../images_koukaki/Studio_Koukaki-image_place.png");
+}
+.story .cloudTop {
+  top: 80px;
+  right: 50px;
+}
+.story .cloudBottom {
+  top: 270px;
+  right: 350px;
+}
+.story .cloudScroll {
+  position: absolute;
+  filter: blur(13px);
+}
+.story .cloudScroll.visible {
+  animation: scrollLeft 7s linear forwards; /* Vitesse de défilement et boucle infinie */
+}
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0); /* Début de l'animation, pas de décalage */
   }
-  .menu-full .cat3 {
-    bottom: 350px;
-    right: 150px;
+  100% {
+    transform: translateX(-300px); /* Fin de l'animation, decalage de 300px vers la gauche*/
   }
 }
 
 .banner {
   position: relative;
-  background-size: cover;
   height: 0;
 }
 .banner #background-video {
@@ -271,27 +331,24 @@
   top: 0;
   object-fit: cover;
   animation: fade-in 4s;
-  background-size: cover;
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
   .banner #background-video {
     display: none;
   }
 }
-
-.parallax-title {
+.banner .parallax-title {
   z-index: 2;
   animation: float 3s infinite ease-in-out;
   position: absolute;
-  transition: top 0.3 ease;
+  /* effet de flottement du titre*/
 }
-
-/* effet de flottement du titre*/
 @keyframes float {
   50% {
     transform: translateY(10px);
   }
 }
+
 /* rotation des fleurs */
 .story__article::after {
   animation: rotate 5s linear infinite;
@@ -304,11 +361,9 @@
 .site-footer::after {
   animation: rotate 5s linear infinite;
 }
-
 .site-footer ul::after {
   animation: rotate 5s linear infinite;
 }
-
 .site-footer::before {
   animation: rotate 5s linear infinite;
 }
@@ -316,7 +371,6 @@
 #studio h2::before {
   animation: rotate 5s linear infinite;
 }
-
 #studio h2::after {
   animation: rotate 5s linear infinite;
 }
@@ -335,9 +389,7 @@
   .site-footer::after,
   .site-footer::before,
   .story__article::after,
-  .story h2::after,
-  .site-footer::after,
-  .site-footer ul::after {
+  .story h2::after {
     display: none;
   }
 }
@@ -347,28 +399,6 @@
   opacity: 0;
   overflow-x: hidden;
 }
-
-#characters {
-  animation: fadein-b 4s ease-in forwards;
-  opacity: 0;
-}
-
-#colophon {
-  animation: fadeB 4s ease-in forwards;
-  opacity: 0;
-}
-
-#place {
-  animation: fadein-r 4s ease-in forwards;
-  opacity: 0;
-}
-
-#studio {
-  overflow: hidden;
-  animation: fadein-t 4s ease-in forwards;
-  opacity: 0;
-}
-
 @keyframes fade-in {
   from {
     transform: translateX(-100px);
@@ -379,35 +409,25 @@
     opacity: 1;
   }
 }
-@keyframes fadein-r {
-  from {
-    transform: translateX(100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes fadein-t {
-  from {
-    transform: translateY(-100px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+
+#characters {
+  animation: fadein-b 4s ease-in forwards;
+  opacity: 0;
 }
 @keyframes fadein-b {
   from {
-    transform: translateY(-50px);
+    transform: translateY(100px);
     opacity: 0;
   }
   to {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+#colophon {
+  animation: fadeB 4s ease-in forwards;
+  opacity: 0;
 }
 @keyframes fadeB {
   from {
@@ -419,37 +439,36 @@
     opacity: 1;
   }
 }
-.cloudTop {
-  top: 80px;
-  right: 50px;
-}
 
-.cloudBottom {
-  top: 270px;
-  right: 350px;
+#place {
+  animation: fadein-r 4s ease-in forwards;
+  opacity: 0;
 }
-
-.cloudScroll {
-  position: absolute;
-  filter: blur(13px);
-}
-.cloudScroll.visible {
-  animation: scrollLeft 10s linear forwards; /* Vitesse de défilement et boucle infinie */
-}
-@keyframes scrollLeft {
-  0% {
-    transform: translateX(0); /* Début de l'animation, pas de décalage */
+@keyframes fadein-r {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
   }
-  50% {
-    transform: translateX(-300px);
-  }
-  100% {
-    transform: translateX(10px); /* Fin de l'animation, décalage de 10px vers la droite */
+  to {
+    transform: translateX(0);
+    opacity: 1;
   }
 }
 
-.story #place {
-  background-image: url("../images_koukaki/Studio_Koukaki-image_place.png");
+#studio {
+  overflow: hidden;
+  animation: fadein-t 4s ease-in forwards;
+  opacity: 0;
+}
+@keyframes fadein-t {
+  from {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,0 +1,30 @@
+//cloud animation
+.story {
+    #place   {
+    background-image: url('../images_koukaki/Studio_Koukaki-image_place.png');
+    }
+    .cloudTop{
+    top :80px;
+    right: 50px;
+}
+    .cloudBottom{
+    top:270px;
+    right: 350px;
+}
+    .cloudScroll{
+    position: absolute;
+    filter: blur(13px);
+
+        &.visible {
+        animation: scrollLeft 7s linear forwards; /* Vitesse de défilement et boucle infinie */
+      }
+        @keyframes scrollLeft {
+            0% {
+                transform: translateX(0); /* Début de l'animation, pas de décalage */
+            }
+            100%{
+            transform: translateX(-300px); /* Fin de l'animation, decalage de 300px vers la gauche*/
+            }
+        }
+    }
+}
